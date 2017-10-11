@@ -1,0 +1,15 @@
+{
+  "name": "ipld",
+  "version": "1.0.0",
+  "description": "Resolve through IPLD graphs with the dag API ============================================",
+  "main": "create-node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ipfs": "^0.26.0",
+    "uuid": "^3.1.0"
+  }
+}
