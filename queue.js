@@ -12,7 +12,8 @@ createNode((err, ipfs) => {
 
   const job = {
     id: uuidv1(),
-    operation: "https://raw.githubusercontent.com/computes/operations/master/nextprime/index.js"
+    operation: "https://raw.githubusercontent.com/computes/operations/master/nextprime/index.js",
+    tags: ["javascript", "prime"]
   }
 
   ipfs.dag.put(job, { format: 'dag-cbor', hashAlg: 'sha2-256' }, (err, cid) => {
@@ -37,14 +38,14 @@ createNode((err, ipfs) => {
       console.log(result.value)
     })
 
-    // const cidStr = cid.toBaseEncodedString()
-    // ipfs.dag.get(cidStr + '/likes/0', (err, result) => {
-    //   if (err) {
-    //     throw err
-    //   }
-    //
-    //   console.log(result.value)
-    // })
+    const cidStr = cid.toBaseEncodedString()
+    ipfs.dag.get(cidStr + '/tags/0', (err, result) => {
+      if (err) {
+        throw err
+      }
+
+      console.log(result.value)
+    })
 
   })
 })
